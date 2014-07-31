@@ -86,7 +86,7 @@ module.exports = (cache, requestio) ->
 		authenticate: (code, session) -> 
 			defer = Q.defer()
 			request.post {
-				url: cache.oauthd_url + '/auth/access_token',
+				url: cache.oauthd_url + '/access_token',
 				form: {
 					code: code,
 					key: cache.public_key,
