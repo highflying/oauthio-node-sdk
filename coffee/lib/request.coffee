@@ -94,7 +94,7 @@ module.exports = (cache) ->
 				body = {
 					filter: opts.join(',')
 				}
-			url = "/auth/" + r.provider + '/me'
+			url = "/request/" + r.provider + '/me'
 			url = cache.oauthd_url + url
 			options = {
 				method: "GET",
@@ -109,7 +109,7 @@ module.exports = (cache) ->
 						response = JSON.parse body
 					if typeof body is 'object'
 						response = body
-					defer.resolve response.data
+					defer.resolve response
 					return
 				else if r.statusCode == 501
 					defer.reject new Error(body)
